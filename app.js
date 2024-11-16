@@ -14,9 +14,7 @@ console.log(err)
 db.once("open",()=>{
     console.log("Connected to the DB")
 })
-// app.use('/', (req,res)=>{
-// res.send("HELLO MATAn YA BEN ZONA")
-// })
+
 
 app.use("/users",usersRouter)
 
