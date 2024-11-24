@@ -15,13 +15,13 @@ Content-Type: application/json
 GET http://localhost:3000/user/All
 
 
-###
+
 ###
 # get a user by id
 
 GET http://localhost:3000/user/673f2001d83b05cb85386703
 
-###
+
 ###
 # update a user 
 PUT http://localhost:3000/user/update
@@ -42,6 +42,7 @@ Content-Type: application/json
 ###
 
 ############################# Posts ####################
+###
 # get all posts
 GET http://localhost:3000/post/All
 
