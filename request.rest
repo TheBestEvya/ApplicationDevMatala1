@@ -1,5 +1,127 @@
+############################# USER ####################
+
+# Add a New User
+POST http://localhost:3000/user/create 
+Content-Type: application/json
+
+{
+  "name": "Evyatar",
+  "email": "EvyaTest@gmail.com",
+  "password": "123456"
+}
 ###
 
-GET http://localhost:3000/users/All
+
+# get All users
+
+GET http://localhost:3000/user/All
+
 
 ###
+# get a user by id
+
+GET http://localhost:3000/user/673f2001d83b05cb85386703
+
+###
+# update a user 
+PUT http://localhost:3000/user/update
+Content-Type: application/json
+
+{
+  "id" : "673f2001d83b05cb85386703",
+  "name": "OR",
+  "email": "Evya61992@gmail.com",
+  "password": "123456"
+}
+###
+# delete a user
+DELETE http://localhost:3000/user/delete
+Content-Type: application/json
+
+{"id": "673f2127d83b05cb8538670c"}
+###
+
+############################# Posts ####################
+# get all posts
+GET http://localhost:3000/post/All
+
+
+###
+# get a post by id
+GET http://localhost:3000/post/673f264a560c34f7c45220d0
+
+
+###
+# get all posts by sender ID
+GET http://localhost:3000/post/All
+
+
+###
+# create a post with NO COMMENTS!
+POST http://localhost:3000/post/create
+Content-Type: application/json
+
+{
+ "title": "The Best Post 2",
+"content": "This post contains concatination and splice",
+"comments": [],
+"sender" : "673f2001d83b05cb85386703"
+}
+###
+
+# update a post (USED FOR COMMENTS!)
+PUT http://localhost:3000/post/update/673f264a560c34f7c45220d0
+Content-Type: application/json
+
+{
+  "title": "The Best Post",
+"content": "This post contains concatination and splice and now it is updated",
+"comments": [],
+"sender" : "673f2001d83b05cb85386703"
+}
+###
+# delete a post
+
+DELETE http://localhost:3000/post/delete
+Content-Type: application/json
+
+{"id" : "673f277b560c34f7c45220d8"}
+
+
+############################# Comments ####################
+###
+# get all comments
+GET http://localhost:3000/comment/All
+
+
+###
+# get a comment by ID
+GET http://localhost:3000/comment/
+
+###
+# create a comment
+POST http://localhost:3000/comment/create
+Content-Type: application/json
+
+{
+  "userId" : "673f2001d83b05cb85386703",
+  "postId" : "673f264a560c34f7c45220d0",
+  "comment" : "Or you are the biggest gay man in the world"
+}
+### 
+# update a comment by its ID
+PUT http://localhost:3000/comment/update
+Content-Type: application/json
+
+{
+  "id" : ""
+}
+
+###
+# delete a comment by ID
+DELETE http://localhost:3000/comment/delete
+Content-Type: application/json
+
+{
+  "id" : ""
+}
