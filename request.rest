@@ -38,7 +38,7 @@ Content-Type: application/json
 DELETE http://localhost:3000/user/delete
 Content-Type: application/json
 
-{"id": "673f2127d83b05cb8538670c"}
+{"id": "673f2001d83b05cb85386703"}
 ###
 
 ############################# Posts ####################
@@ -54,7 +54,7 @@ GET http://localhost:3000/post/6742fed892a50acb9a4b24a9
 
 ###
 # get all posts by sender ID
-GET http://localhost:3000/post?sender=673f2001d83b05cb85386703
+GET http://localhost:3000/post?sender=67444aab0874d4c010cb844d
 
 
 ###
@@ -63,10 +63,10 @@ POST http://localhost:3000/post/create
 Content-Type: application/json
 
 {
- "title": "The Best Post 2",
-"content": "This post contains concatination and splice",
+ "title": "The Best Post 4444",
+"content": "TESTESTESTEST",
 "comments": [],
-"sender" : "673f2001d83b05cb85386703"
+"sender" : "67444aab0874d4c010cb844d"
 }
 ###
 
@@ -84,7 +84,7 @@ Content-Type: application/json
 DELETE http://localhost:3000/post/delete
 Content-Type: application/json
 
-{"id" : "67430b5548c811e81ec4e1b3"}
+{"id" : "67430ebc6933b7b983dd1f9e"}
 
 
 ############################# Comments ####################
@@ -103,9 +103,9 @@ POST http://localhost:3000/comment/create
 Content-Type: application/json
 
 {
-  "userId" : "673f2001d83b05cb85386703",
-  "postId" : "67430ebc6933b7b983dd1f9e",
-  "text" : "Or you are the biggest gay man in the world"
+  "userId" : "67444aab0874d4c010cb844d",
+  "postId" : "67448b6fd58e80e79314ee75",
+  "text" : "Or you are the biggest man in the world"
 }
 ### 
 # update a comment by ID
@@ -113,9 +113,8 @@ PUT http://localhost:3000/comment/update
 Content-Type: application/json
 
 {
-  "id" : "6742ff1f92a50acb9a4b24ac",
-  "userId" : "673f2001d83b05cb85386703",
-  "text" : "Or you are the biggest gay fucking man in the world"
+  "id" : "67448c9ed58e80e79314ee7c",
+  "text" : "Or you are the biggest fucking man in the world"
 }
 
 ###
@@ -124,6 +123,6 @@ DELETE http://localhost:3000/comment/delete
 Content-Type: application/json
 
 {
-  "id" : "67430f2438cc6c88eb8d47bf"
+  "id" : "67448c9ed58e80e79314ee7c"
 }
 ###

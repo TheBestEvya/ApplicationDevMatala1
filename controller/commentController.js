@@ -47,7 +47,7 @@ const updateComment = async (req, res) => {
   try {
     const { id , text } = req.body;
     const updatedComment = await commentModel.findByIdAndUpdate(id, {text : text}, { new: true });
-    const post = await postModel.findById(updateComment.postId);
+    const post = await postModel.findById(updatedComment.postId);
     const comment = post.comments.find(comment => comment._id == id);
     if(comment){
       comment.text = text;
