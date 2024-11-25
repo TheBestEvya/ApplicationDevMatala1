@@ -23,8 +23,8 @@ const getPost = async (req , res)=>{
 }
 const getPostBySender = async (req , res)=>{
     try {
-        const senderId = req.params.sender_id
-        const posts = await postModel.find({sender : senderId});
+      const {sender} = req.query
+        const posts = await postModel.find({sender : sender});
         if(!posts){
             return res.status(400).json({ message: "Post not found" });
         }
@@ -57,7 +57,7 @@ const deletePost = async(req,res)=>{
         const { id } = req.body; 
         await commentModel.deleteMany({postId : id})
         await postModel.findByIdAndDelete(id);
-        res.status(200).json({ message: "Post deleted successfully" });
+        res.status(200).json({ message : "Post deleted successfully" });
       } catch (error) {
         res.status(500).json({ message: "Error deleting Post", error: error.message });
       }

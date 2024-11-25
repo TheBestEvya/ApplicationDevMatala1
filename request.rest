@@ -5,8 +5,8 @@ POST http://localhost:3000/user/create
 Content-Type: application/json
 
 {
-  "name": "Evyatar",
-  "email": "EvyaTest@gmail.com",
+  "name": "or",
+  "email": "orTest@gmail.com",
   "password": "123456"
 }
 ###
@@ -54,7 +54,7 @@ GET http://localhost:3000/post/6742fed892a50acb9a4b24a9
 
 ###
 # get all posts by sender ID
-GET http://localhost:3000/post/sender/673f2001d83b05cb85386703
+GET http://localhost:3000/post?sender=673f2001d83b05cb85386703
 
 
 ###
