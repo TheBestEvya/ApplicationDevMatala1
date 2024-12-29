@@ -1,6 +1,7 @@
 import userModel from "../model/userModel";
+import {Request, Response} from "express"
 
-const getAllUsers = async (req , res)=>{
+const getAllUsers = async (req : Request , res :Response)=>{
     try {
         const users = await userModel.find();
         res.status(200).json(users);
@@ -8,7 +9,7 @@ const getAllUsers = async (req , res)=>{
         res.status(500).json({ message: "Error fetching users", error: error.message });
       }
 }
-const getUser = async (req , res)=>{
+const getUser = async (req : Request , res :Response)=>{
     try {
         const id = req.params.id
         const user = await userModel.findById(id);
@@ -21,7 +22,7 @@ const getUser = async (req , res)=>{
         res.status(500).json({ message: "Error fetching users", error: error.message });
       }
 }
-const createUser = async(req,res)=>{
+const createUser = async(req : Request , res :Response)=>{
     try {
         const newUser = new userModel(req.body)
         const savedUser = await newUser.save()
@@ -30,7 +31,7 @@ const createUser = async(req,res)=>{
         res.status(500).json({ message: "Error creating user", error: error.message });
       }
 }
-const updateUser = async(req,res)=>{
+const updateUser = async(req : Request , res :Response)=>{
     try {
         const { id } = req.body;
         const updatedData = req.body;
@@ -44,7 +45,7 @@ const updateUser = async(req,res)=>{
         res.status(500).json({ message: "Error updating user", error: error.message });
       }
 }
-const deleteUser = async(req,res)=>{
+const deleteUser = async(req : Request , res :Response)=>{
     try {
         const { id } = req.body; 
         await userModel.findByIdAndDelete(id);
