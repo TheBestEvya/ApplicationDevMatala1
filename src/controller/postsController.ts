@@ -1,7 +1,8 @@
-const {postModel} = require("../model/postModel.js")
-const {commentModel} = require("../model/commentModel.js")
+import  postModel from "../model/postModel"
+import commentModel  from "../model/commentModel"
+import {Request, Response} from "express"
 
-const getAllposts = async (req , res)=>{
+const getAllposts = async (req : Request , res :Response)=>{
     try {
         const posts = await postModel.find({});
         res.status(200).json(posts);
@@ -9,7 +10,7 @@ const getAllposts = async (req , res)=>{
         res.status(500).json({ message: "Error fetching posts", error: error.message });
       }
 }
-const getPost = async (req , res)=>{
+const getPost = async (req : Request , res :Response)=>{
     try {
         const id = req.params.id
         const post = await postModel.findById(id);
@@ -21,7 +22,7 @@ const getPost = async (req , res)=>{
         res.status(500).json({ message: "Error fetching post", error: error.message });
       }
 }
-const getPostBySender = async (req , res)=>{
+const getPostBySender = async (req : Request , res :Response)=>{
     try {
       const {sender} = req.query
         const posts = await postModel.find({sender : sender});
@@ -33,7 +34,7 @@ const getPostBySender = async (req , res)=>{
         res.status(500).json({ message: "Error fetching posts", error: error.message });
       }
 }
-const createPost = async(req,res)=>{
+const createPost = async(req : Request , res :Response)=>{
     try {
         const newPost = new postModel(req.body)
         const savedPost = await newPost.save()
@@ -42,7 +43,7 @@ const createPost = async(req,res)=>{
         res.status(500).json({ message: "Error creating Post", error: error.message });
       }
 }
-const updatePost = async(req,res)=>{
+const updatePost = async(req : Request , res :Response)=>{
     try {
         const id  = req.params.id;
         const {title , content} = req.body;
@@ -52,7 +53,7 @@ const updatePost = async(req,res)=>{
         res.status(500).json({ message: "Error updating Post", error: error.message });
       }
 }
-const deletePost = async(req,res)=>{
+const deletePost = async(req : Request , res :Response)=>{
     try {
         const { id } = req.body; 
         await commentModel.deleteMany({postId : id})
@@ -63,4 +64,4 @@ const deletePost = async(req,res)=>{
       }
 }
 
-module.exports = {createPost,getPost,getPostBySender,getAllposts,updatePost,deletePost}
+export default  {createPost,getPost,getPostBySender,getAllposts,updatePost,deletePost}

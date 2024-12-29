@@ -1,15 +1,18 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const dotenv = require("dotenv").config()
-const bodyParser = require("body-parser")
-const mongoose = require("mongoose")
-const usersRouter = require("./routes/usersRouter.js")
-const postsRouter = require("./routes/postsRouter.js")
-const commentRouter = require("./routes/commentRouter.js")
+import dotenv  from "dotenv"
+import  bodyParser from "body-parser"
+import  mongoose from "mongoose"
+import  usersRouter  from "./routes/usersRouter"
+import postsRouter from "./routes/postsRouter"
+import commentRouter from "./routes/commentRouter"
+dotenv.config();
+
+
 const port = process.env.PORT
 
 try{
-mongoose.connect(process.env.DB_URI, {useNewUrlParser: true})
+mongoose.connect(process.env.DB_URI)
 }catch(e){
     console.log(e)
 }

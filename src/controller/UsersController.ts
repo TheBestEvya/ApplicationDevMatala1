@@ -1,4 +1,4 @@
-const userModel = require("../model/userModel.js")
+import userModel from "../model/userModel";
 
 const getAllUsers = async (req , res)=>{
     try {
@@ -54,4 +54,4 @@ const deleteUser = async(req,res)=>{
       }
 }
 
-module.exports = {createUser,getUser,getAllUsers,updateUser,deleteUser}
+export default  {createUser,getUser,getAllUsers,updateUser,deleteUser}

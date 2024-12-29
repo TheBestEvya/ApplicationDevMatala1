@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const {commentSchema} = require("./commentModel")
+import  mongoose from "mongoose";
+import  {commentSchema} from "./commentModel"
 
 const postSchema = new mongoose.Schema({
 
@@ -21,4 +21,4 @@ const postSchema = new mongoose.Schema({
 
   const postModel = mongoose.model("posts", postSchema);
 
-  module.exports = {postModel}
+export default postModel;

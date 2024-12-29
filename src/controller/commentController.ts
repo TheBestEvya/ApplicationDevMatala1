@@ -1,6 +1,5 @@
-const {commentModel} = require("../model/commentModel.js");  // Assuming your model is in the 'model' folder
-const {postModel} = require("../model/postModel.js");
-const { post } = require("../routes/postsRouter.js");
+import  commentModel from "../model/commentModel";  // Assuming your model is in the 'model' folder
+import postModel from "../model/postModel";
 
 const getAllComments = async (req, res) => {
   try {
@@ -68,7 +67,8 @@ const deleteComment = async (req, res) => {
       return;
     }
     const post = await postModel.findById(comment.postId);
-    post.comments = post.comments.filter(comment => comment._id != id);
+    // post.comments = post.comments.filter(comment => comment._id != id);
+    post.comments.pull(id);
     await post.save(); 
 
     res.status(200).json({ message: "Comment deleted successfully" });
@@ -77,4 +77,4 @@ const deleteComment = async (req, res) => {
   }
 };
 
-module.exports = { createComment, getComment, getAllComments, updateComment, deleteComment };
+export default { createComment, getComment, getAllComments, updateComment, deleteComment };
